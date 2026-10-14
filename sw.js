@@ -1,5 +1,7 @@
-/* Lucy service worker — offline-first app shell + media cache. */
-const CACHE = 'lucy-v1';
+/* Lucy service worker — offline-first app shell + media cache.
+ * Bump CACHE on every deploy that changes cached assets, otherwise
+ * clients keep serving the previous bundle. */
+const CACHE = 'lucy-v2';
 
 const APP_SHELL = [
   '/', 'index.html', 'manifest.json', 'offline.html',
