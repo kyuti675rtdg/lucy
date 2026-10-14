@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lucy debug</title>
+<link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/feed.css"><link rel="stylesheet" href="css/screens.css">
+<style>
+  #dbg{position:fixed;left:0;right:0;bottom:0;z-index:9999;max-height:45dvh;overflow:auto;
+    background:#111;color:#0f0;font:11px/1.5 monospace;white-space:pre-wrap;padding:8px;opacity:.95}
+</style>
+</head><body>
+<div id="app"><main id="views">
+<section class="view" id="view-home"></section>
+<section class="view" id="view-discover"></section>
+<section class="view" id="view-create"></section>
+<section class="view" id="view-inbox"></section>
+<section class="view" id="view-profile"></section>
+<section class="view" id="view-detail"></section>
+</main><nav id="tabbar">
+<button class="tabbtn" data-route="home"><span>Home</span></button>
+<button class="tabbtn" data-route="discover"><span>Discover</span></button>
+<button class="tabbtn tabbtn-create" data-route="create"><span>+</span></button>
+<button class="tabbtn" data-route="inbox"><span>Inbox</span></button>
+<button class="tabbtn" data-route="profile"><span>Me</span></button>
+</nav></div>
+<pre id="dbg">booting…</pre>
+<script>
+  window.__errs = [];
+  window.addEventListener('error', (e) => window.__errs.push('ERR: ' + (e.message || e.type)));
+  window.addEventListener('unhandledrejection', (e) => window.__errs.push('REJ: ' + (e.reason && e.reason.message || e.reason)));
+</script>
+<script type="module">
+  import {repo} from './js/data/repository.js';
+  import {HomeScreen} from './js/feed.js';
+  const out = [];
+  const R = (el) => { if(!el) return 'missing'; const r = el.getBoundingClientRect();
+    return {x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height)}; };
+  try {
+    await repo.ready;
+    out.push('repo ready');
+    const sec = document.getElementById('view-home');
+    sec.classList.add('active');
+    HomeScreen.mount(sec, {});
+    out.push('mounted, slides=' + sec.querySelectorAll('.feed-slide').length);
+    await new Promise((r) => setTimeout(r, 4000));
+    const cs = (el, p) => el ? getComputedStyle(el)[p] : 'missing';
+    const home = document.getElementById('view-home');
+    const feed = home.querySelector('.feed');
+    const slide0 = home.querySelector('.feed-slide');
+    const rail = home.querySelector('.rail');
+    const topbar = home.querySelector('.feed-topbar');
+    const meta = home.querySelector('.feed-meta');
+    const vid0 = home.querySelector('video');
+    out.push('view-home rect=' + JSON.stringify(R(home)) + ' pos=' + cs(home,'position') + ' display=' + cs(home,'display'));
+    out.push('feed rect=' + JSON.stringify(R(feed)) + ' h=' + cs(feed,'height'));
+    out.push('slide0 rect=' + JSON.stringify(R(slide0)) + ' h=' + cs(slide0,'height'));
+    out.push('rail rect=' + JSON.stringify(R(rail)));
+    out.push('topbar rect=' + JSON.stringify(R(topbar)));
+    out.push('meta rect=' + JSON.stringify(R(meta)));
+    out.push('video0 rect=' + JSON.stringify(R(vid0)) + ' readyState=' + (vid0 && vid0.readyState) + ' paused=' + (vid0 && vid0.paused) + ' src=' + (vid0 && vid0.currentSrc.slice(-20)));
+    out.push('viewport=' + innerWidth + 'x' + innerHeight + ' dpr=' + devicePixelRatio);
+    /* inbox probe */
+    try {
+      const threads = repo.getThreads() || [];
+      const t0 = threads[0] || {};
+      const lm = t0.lastMessage;
+      out.push('threads=' + threads.length + ' lastMessage type=' + (lm === null ? 'null' : typeof lm) +
+        ' text=' + JSON.stringify(lm && (lm.text || lm.body)) +
+        ' snippet=' + JSON.stringify(t0.snippet));
+    } catch(e) { out.push('inbox probe failed: ' + (e && e.message)); }
+    out.push('window errors: ' + (window.__errs.length ? window.__errs.join(' | ') : 'none'));
+  } catch(e) { out.push('FATAL: ' + (e && e.message)); }
+  document.getElementById('dbg').textContent = out.join('\n');
+</script>
+</body></html>
