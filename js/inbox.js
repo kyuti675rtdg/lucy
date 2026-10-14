@@ -142,11 +142,12 @@ export const InboxScreen = {
       }
       threads.forEach((t) => {
         const u = t.user || t.participant || {};
+        const lastTxt = (t.lastMessage && (t.lastMessage.text || t.lastMessage.body)) || t.snippet || '';
         const row = el('button', 'thread-row');
         row.innerHTML =
           '<img class="thread-ava" src="' + esc(u.avatar || '') + '" alt="">' +
           '<span class="thread-txt"><b>' + esc(u.displayName || u.handle || 'Chat') + '</b>' +
-            '<small>' + esc(t.lastMessage || t.snippet || '') + '</small></span>' +
+            '<small>' + esc(lastTxt) + '</small></span>' +
           '<span class="thread-meta"><small>' + esc(timeAgo(t.updatedAt)) + '</small>' +
             ((t.unread || 0) > 0 ? '<span class="count-badge">' + ((t.unread > 99) ? '99+' : t.unread) + '</span>' : '') + '</span>';
         on(row, 'click', () => { S.threadId = t.id; render(); });

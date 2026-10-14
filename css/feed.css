@@ -58,7 +58,7 @@
 .seg-pill { left: var(--pill-l, 4px); width: var(--pill-w, 0); }
 
 /* ---------- feed scroll ---------- */
-#view-home { position: relative; overflow: hidden; background: var(--lucy-bg); }
+#view-home { position: absolute; inset: 0; overflow: hidden; background: var(--lucy-bg); }
 .feed {
   height: 100%;
   overflow-y: auto;
