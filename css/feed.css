@@ -1,0 +1,342 @@
+/* Project Lucy — feed screen styles. Original design, Lucy tokens only. */
+
+/* ---------- top bar ---------- */
+.feed-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  padding-top: max(12px, env(safe-area-inset-top));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent);
+  pointer-events: none;
+}
+.feed-topbar .seg { pointer-events: auto; }
+.feed-top-actions {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  gap: 4px;
+  pointer-events: auto;
+}
+
+/* ---------- segmented control ---------- */
+.seg {
+  position: relative;
+  display: flex;
+  background: rgba(26,26,33,0.72);
+  border-radius: 999px;
+  padding: 4px;
+  backdrop-filter: blur(8px);
+}
+.seg-wide { margin: 8px 16px 0; }
+.seg-btn {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  color: var(--lucy-text-2);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.seg-btn.on { color: var(--lucy-text); }
+.seg-pill {
+  position: absolute;
+  top: 4px; bottom: 4px;
+  border-radius: 999px;
+  background: var(--lucy-surface-2);
+  transition: left 0.25s ease, width 0.25s ease;
+  /* positioned by JS-free fallback: hidden until measured */
+}
+.seg { --pill-l: 4px; --pill-w: 0px; }
+.seg-pill { left: var(--pill-l, 4px); width: var(--pill-w, 0); }
+
+/* ---------- feed scroll ---------- */
+#view-home { position: relative; overflow: hidden; background: var(--lucy-bg); }
+.feed {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+.feed::-webkit-scrollbar { display: none; }
+
+.feed-slide {
+  position: relative;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--lucy-bg);
+  overflow: hidden;
+}
+.feed-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--lucy-bg);
+}
+.tap-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  touch-action: manipulation;
+}
+.burst-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  overflow: hidden;
+}
+.tap-flash {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  z-index: 12;
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.45);
+  color: var(--lucy-text);
+  opacity: 0;
+  pointer-events: none;
+}
+.tap-flash.show { animation: flash-pop 0.45s ease forwards; }
+@keyframes flash-pop {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(0.6); }
+  30% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(1.15); }
+}
+
+/* ---------- heart burst ---------- */
+.burst-heart {
+  position: absolute;
+  width: 96px; height: 96px;
+  margin: -48px 0 0 -48px;
+  color: var(--lucy-danger);
+  pointer-events: none;
+  animation: heart-burst 0.9s ease-out forwards;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.burst-heart .ic { width: 100%; height: 100%; }
+@keyframes heart-burst {
+  0% { opacity: 0; transform: scale(0) rotate(-12deg); }
+  25% { opacity: 1; transform: scale(1.25) rotate(6deg); }
+  55% { opacity: 1; transform: scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: scale(1.1) translateY(-48px); }
+}
+
+/* ---------- right rail ---------- */
+.rail {
+  position: absolute;
+  right: 8px;
+  bottom: 96px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.rail-avatar {
+  position: relative;
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  border: 2px solid var(--lucy-text);
+  padding: 0;
+  overflow: visible;
+  background: var(--lucy-surface-2);
+  cursor: pointer;
+}
+.rail-avatar img {
+  width: 100%; height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}
+.follow-badge {
+  position: absolute;
+  left: 50%; bottom: -8px;
+  transform: translateX(-50%);
+  width: 20px; height: 20px;
+  border-radius: 999px;
+  background: var(--lucy-accent);
+  color: var(--lucy-text);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.follow-badge.is-on { background: var(--lucy-text); color: var(--lucy-accent); }
+.rail-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  color: var(--lucy-text);
+  cursor: pointer;
+  padding: 0;
+}
+.rail-btn .ic { width: 32px; height: 32px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+.rail-btn.like-btn.is-on { color: var(--lucy-danger); }
+.rail-btn.is-amber { color: var(--lucy-accent-2); }
+.rail-btn.pop .ic { animation: rail-pop 0.35s ease; }
+@keyframes rail-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+.rail-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lucy-text);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+/* spinning vinyl */
+.vinyl {
+  position: relative;
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  overflow: visible;
+  margin-top: 4px;
+}
+.vinyl img {
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 8px solid rgba(26,26,33,0.9);
+  animation: vinyl-spin 8s linear infinite;
+  display: block;
+  box-sizing: border-box;
+}
+@keyframes vinyl-spin { to { transform: rotate(360deg); } }
+.vinyl-note {
+  position: absolute;
+  right: -2px; bottom: -2px;
+  width: 20px; height: 20px;
+  border-radius: 999px;
+  background: var(--lucy-surface-2);
+  color: var(--lucy-text);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- bottom-left meta ---------- */
+.feed-meta {
+  position: absolute;
+  left: 12px; right: 76px;
+  bottom: 88px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--lucy-text);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+}
+.feed-user {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 17px;
+  font-weight: 800;
+}
+.vcheck {
+  display: inline-flex;
+  width: 16px; height: 16px;
+  border-radius: 999px;
+  background: var(--lucy-accent);
+  color: var(--lucy-text);
+  align-items: center; justify-content: center;
+}
+.feed-caption { font-size: 15px; line-height: 1.35; }
+.cap-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.feed-meta.cap-open .cap-text {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+.cap-more {
+  background: none; border: 0;
+  color: var(--lucy-text);
+  font-size: 15px; font-weight: 600;
+  padding: 0 0 0 4px;
+  cursor: pointer;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+}
+.feed-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.htag {
+  color: var(--lucy-text);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* audio marquee */
+.audio-ticker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  max-width: 100%;
+}
+.tick-note { flex: 0 0 auto; }
+.tick-mask {
+  overflow: hidden;
+  flex: 1 1 auto;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.tick-track {
+  display: inline-flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: tick-scroll 14s linear infinite;
+  will-change: transform;
+}
+@keyframes tick-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- seekbar ---------- */
+.seekbar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 25;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+}
+.seek-fill {
+  height: 100%;
+  width: 0;
+  background: var(--lucy-accent);
+}
+
+/* ---------- generic icon sizing ---------- */
+.ic { width: 24px; height: 24px; fill: currentColor; }
+.ic-xs { width: 14px; height: 14px; }
+.ic-lg { width: 36px; height: 36px; }
+.icon-btn {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(26,26,33,0.6);
+  color: var(--lucy-text);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Lucy mark: violet rounded square, white play triangle, amber orbit ring. -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#8B5CF6"/>
+  <ellipse cx="32" cy="32" rx="27" ry="13" fill="none" stroke="#FBBF24" stroke-width="3.5" transform="rotate(-20 32 32)"/>
+  <path d="M27 21.5l15 10.5-15 10.5z" fill="#FFFFFF"/>
+</svg>

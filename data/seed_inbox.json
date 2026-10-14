@@ -1,0 +1,376 @@
+{
+  "notifications": [
+    {
+      "id": "n01",
+      "type": "system",
+      "actorId": null,
+      "text": "Welcome to Lucy — your offline studio is ready.",
+      "videoId": null,
+      "createdAt": "2026-09-21T09:00:00Z",
+      "read": true
+    },
+    {
+      "id": "n02",
+      "type": "like",
+      "actorId": "u05",
+      "text": "henok.laughs liked your video",
+      "videoId": "v01",
+      "createdAt": "2026-10-02T14:22:00Z",
+      "read": true
+    },
+    {
+      "id": "n03",
+      "type": "like",
+      "actorId": "u17",
+      "text": "bereket.buna liked your video",
+      "videoId": "v01",
+      "createdAt": "2026-10-05T09:41:00Z",
+      "read": true
+    },
+    {
+      "id": "n04",
+      "type": "like",
+      "actorId": "u09",
+      "text": "yared.sings liked your video",
+      "videoId": "v01",
+      "createdAt": "2026-10-13T20:15:00Z",
+      "read": false
+    },
+    {
+      "id": "n05",
+      "type": "like",
+      "actorId": "u11",
+      "text": "nova.beats liked your video",
+      "videoId": "v01",
+      "createdAt": "2026-10-08T11:03:00Z",
+      "read": true
+    },
+    {
+      "id": "n06",
+      "type": "comment",
+      "actorId": "u06",
+      "text": "tigist.daily commented: \"The smart brewer texting you 😭 I need this\"",
+      "videoId": "v01",
+      "createdAt": "2026-10-06T16:30:00Z",
+      "read": true
+    },
+    {
+      "id": "n07",
+      "type": "comment",
+      "actorId": "u21",
+      "text": "nahom.moves commented: \"Coffee + tech = genius combo ☕💻\"",
+      "videoId": "v01",
+      "createdAt": "2026-10-14T08:12:00Z",
+      "read": false
+    },
+    {
+      "id": "n08",
+      "type": "comment",
+      "actorId": "u18",
+      "text": "hana.pours commented: \"በትም ይቀልጣል! 🔥\"",
+      "videoId": "v01",
+      "createdAt": "2026-10-09T13:55:00Z",
+      "read": true
+    },
+    {
+      "id": "n09",
+      "type": "follow",
+      "actorId": "u11",
+      "text": "nova.beats started following you",
+      "videoId": null,
+      "createdAt": "2026-10-07T10:20:00Z",
+      "read": true
+    },
+    {
+      "id": "n10",
+      "type": "follow",
+      "actorId": "u13",
+      "text": "amara.lives started following you",
+      "videoId": null,
+      "createdAt": "2026-10-10T18:44:00Z",
+      "read": true
+    },
+    {
+      "id": "n11",
+      "type": "follow",
+      "actorId": "u27",
+      "text": "iris.paints started following you",
+      "videoId": null,
+      "createdAt": "2026-10-13T21:37:00Z",
+      "read": false
+    },
+    {
+      "id": "n12",
+      "type": "follow",
+      "actorId": "u25",
+      "text": "meron.learns started following you",
+      "videoId": null,
+      "createdAt": "2026-10-14T07:58:00Z",
+      "read": false
+    }
+  ],
+  "threads": [
+    {
+      "id": "t1",
+      "userId": "u17",
+      "messages": [
+        {
+          "id": "m0001",
+          "threadId": "t1",
+          "fromMe": false,
+          "text": "Selam! Loved your roasting video 🔥",
+          "createdAt": "2026-10-11T10:05:00Z"
+        },
+        {
+          "id": "m0002",
+          "threadId": "t1",
+          "fromMe": true,
+          "text": "Thank you Bereket! Your ceremony series is the reason I started",
+          "createdAt": "2026-10-11T10:12:00Z"
+        },
+        {
+          "id": "m0003",
+          "threadId": "t1",
+          "fromMe": false,
+          "text": "Haha that means a lot. Quick idea — collab video? Traditional vs modern brew?",
+          "createdAt": "2026-10-11T10:20:00Z"
+        },
+        {
+          "id": "m0004",
+          "threadId": "t1",
+          "fromMe": true,
+          "text": "YES. Jebena vs my espresso machine, side by side",
+          "createdAt": "2026-10-11T10:31:00Z"
+        },
+        {
+          "id": "m0005",
+          "threadId": "t1",
+          "fromMe": false,
+          "text": "Perfect. I can bring the popcorn, you bring the drama 😄",
+          "createdAt": "2026-10-11T10:33:00Z"
+        },
+        {
+          "id": "m0006",
+          "threadId": "t1",
+          "fromMe": true,
+          "text": "Deal. Saturday at your place? I'll bring my camera",
+          "createdAt": "2026-10-11T10:40:00Z"
+        },
+        {
+          "id": "m0007",
+          "threadId": "t1",
+          "fromMe": false,
+          "text": "Saturday works. Come hungry — three rounds minimum ☕",
+          "createdAt": "2026-10-11T10:45:00Z"
+        },
+        {
+          "id": "m0008",
+          "threadId": "t1",
+          "fromMe": true,
+          "text": "Wouldn't miss it. See you at 10!",
+          "createdAt": "2026-10-11T10:52:00Z"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "userId": "u09",
+      "messages": [
+        {
+          "id": "m0009",
+          "threadId": "t2",
+          "fromMe": true,
+          "text": "Yared! Your new single is stuck in my head",
+          "createdAt": "2026-10-12T09:00:00Z"
+        },
+        {
+          "id": "m0010",
+          "threadId": "t2",
+          "fromMe": false,
+          "text": "Haha thank you! Means a lot coming from you",
+          "createdAt": "2026-10-12T09:15:00Z"
+        },
+        {
+          "id": "m0011",
+          "threadId": "t2",
+          "fromMe": true,
+          "text": "Would you be open to me using 15 seconds in my next coffee video?",
+          "createdAt": "2026-10-12T09:18:00Z"
+        },
+        {
+          "id": "m0012",
+          "threadId": "t2",
+          "fromMe": false,
+          "text": "Of course! Which part were you thinking?",
+          "createdAt": "2026-10-12T09:25:00Z"
+        },
+        {
+          "id": "m0013",
+          "threadId": "t2",
+          "fromMe": true,
+          "text": "The masinko intro — it fits a sunrise brewing scene perfectly",
+          "createdAt": "2026-10-12T09:30:00Z"
+        },
+        {
+          "id": "m0014",
+          "threadId": "t2",
+          "fromMe": false,
+          "text": "That's my favorite part too. I'll send you the clean stem",
+          "createdAt": "2026-10-12T09:44:00Z"
+        },
+        {
+          "id": "m0015",
+          "threadId": "t2",
+          "fromMe": true,
+          "text": "You're the best. Full credit + tag, obviously",
+          "createdAt": "2026-10-12T09:50:00Z"
+        },
+        {
+          "id": "m0016",
+          "threadId": "t2",
+          "fromMe": false,
+          "text": "Appreciated 🙏 Just send me the draft before posting?",
+          "createdAt": "2026-10-12T09:58:00Z"
+        },
+        {
+          "id": "m0017",
+          "threadId": "t2",
+          "fromMe": true,
+          "text": "Absolutely. Draft by Friday",
+          "createdAt": "2026-10-12T10:05:00Z"
+        },
+        {
+          "id": "m0018",
+          "threadId": "t2",
+          "fromMe": false,
+          "text": "Can't wait to see it",
+          "createdAt": "2026-10-12T10:12:00Z"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "userId": "u21",
+      "messages": [
+        {
+          "id": "m0019",
+          "threadId": "t3",
+          "fromMe": false,
+          "text": "Selam! Coffee festival next month — I'm choreographing the opening",
+          "createdAt": "2026-10-13T14:00:00Z"
+        },
+        {
+          "id": "m0020",
+          "threadId": "t3",
+          "fromMe": true,
+          "text": "No way! That's huge, congratulations",
+          "createdAt": "2026-10-13T14:07:00Z"
+        },
+        {
+          "id": "m0021",
+          "threadId": "t3",
+          "fromMe": false,
+          "text": "Thanks! Want to do a live brewing demo between sets?",
+          "createdAt": "2026-10-13T14:10:00Z"
+        },
+        {
+          "id": "m0022",
+          "threadId": "t3",
+          "fromMe": true,
+          "text": "I'd love to. I can do a full ceremony on stage?",
+          "createdAt": "2026-10-13T14:22:00Z"
+        },
+        {
+          "id": "m0023",
+          "threadId": "t3",
+          "fromMe": false,
+          "text": "That would be iconic. Crowd gets coffee, I get dancers, everybody wins",
+          "createdAt": "2026-10-13T14:25:00Z"
+        },
+        {
+          "id": "m0024",
+          "threadId": "t3",
+          "fromMe": true,
+          "text": "Haha exactly. Send me the schedule when it's locked",
+          "createdAt": "2026-10-13T14:31:00Z"
+        },
+        {
+          "id": "m0025",
+          "threadId": "t3",
+          "fromMe": false,
+          "text": "Will do. This is going to be special ☕💃",
+          "createdAt": "2026-10-13T14:40:00Z"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "userId": "u05",
+      "messages": [
+        {
+          "id": "m0026",
+          "threadId": "t4",
+          "fromMe": true,
+          "text": "Henok your latest sketch had me crying 😭",
+          "createdAt": "2026-10-13T19:00:00Z"
+        },
+        {
+          "id": "m0027",
+          "threadId": "t4",
+          "fromMe": false,
+          "text": "Haha mission accomplished",
+          "createdAt": "2026-10-13T19:05:00Z"
+        },
+        {
+          "id": "m0028",
+          "threadId": "t4",
+          "fromMe": true,
+          "text": "Serious question — want to film one at my café corner?",
+          "createdAt": "2026-10-13T19:09:00Z"
+        },
+        {
+          "id": "m0029",
+          "threadId": "t4",
+          "fromMe": false,
+          "text": "A barista comedy?? I'm listening...",
+          "createdAt": "2026-10-13T19:14:00Z"
+        },
+        {
+          "id": "m0030",
+          "threadId": "t4",
+          "fromMe": true,
+          "text": "Customer orders a \"decaf jebena\" and you play the offended elder 😄",
+          "createdAt": "2026-10-13T19:20:00Z"
+        },
+        {
+          "id": "m0031",
+          "threadId": "t4",
+          "fromMe": false,
+          "text": "STOP that's perfect. I'm writing it down",
+          "createdAt": "2026-10-13T19:26:00Z"
+        },
+        {
+          "id": "m0032",
+          "threadId": "t4",
+          "fromMe": true,
+          "text": "We film Thursday? I'll have the popcorn ready",
+          "createdAt": "2026-10-13T19:30:00Z"
+        },
+        {
+          "id": "m0033",
+          "threadId": "t4",
+          "fromMe": false,
+          "text": "Thursday confirmed. Bringing my cousin as the \"customer\" 🎬",
+          "createdAt": "2026-10-14T08:15:00Z"
+        },
+        {
+          "id": "m0034",
+          "threadId": "t4",
+          "fromMe": false,
+          "text": "Also — can we do a part 2 with the espresso machine??",
+          "createdAt": "2026-10-14T08:20:00Z"
+        }
+      ]
+    }
+  ]
+}
